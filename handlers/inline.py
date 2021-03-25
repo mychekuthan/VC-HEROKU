@@ -1,5 +1,5 @@
 """
-Written by @pokurt.
+Written by @zyrus_cat.
 """
 from pyrogram import Client, errors
 from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent
@@ -16,7 +16,7 @@ async def search(client: Client, query: InlineQuery):
         await client.answer_inline_query(
             query.id,
             results=answers,
-            switch_pm_text="Type a YouTube video name...",
+            switch_pm_text="SEARCH YT LINK",
             switch_pm_parameter="help",
             cache_time=0
         )
@@ -32,7 +32,7 @@ async def search(client: Client, query: InlineQuery):
                         v["viewCount"]["short"]
                     ),
                     input_message_content=InputTextMessageContent(
-                        "https://www.youtube.com/watch?v={}".format(
+                        "/play https://www.youtube.com/watch?v={}".format(
                             v["id"]
                         )
                     ),
@@ -49,6 +49,6 @@ async def search(client: Client, query: InlineQuery):
             await query.answer(
                 results=answers,
                 cache_time=0,
-                switch_pm_text="Error: Search timed out",
+                switch_pm_text="ERROR TIME OUT",
                 switch_pm_parameter="",
             )
